@@ -1,0 +1,497 @@
+body {
+    background-color: #36393F;
+    /*background-color: rgb(0, 0, 0);*/
+}
+
+
+/*Menu de navgation*/
+
+
+/*Mise en forme des barres de saisie de texte sur les formulaires de connexion*/
+
+input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #ccc;
+    outline: none;
+}
+
+input[type=password]:focus {
+    border: 5px solid #555;
+}
+
+input[type=text] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #ccc;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 5px solid #555;
+}
+
+
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,500&display=swap');
+
+/*Statut couleurs */
+
+.statutColor {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    border: none;
+    padding: 3px 7px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: default;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.arrow {
+    background-color: #494e56;
+    color: #b9bbbe;
+}
+
+.statutResolu {
+    background-color: #3ab119;
+    color: black;
+}
+
+.statutUrgent {
+    background-color: #ad212f;
+    color: rgb(255, 255, 255);
+}
+
+.statutSubmited {
+    background-color: #5b6069;
+    color: rgb(196, 193, 193);
+}
+
+.statutNonResolu {
+    background-color: #EE6549;
+    color: black;
+}
+
+.statutEnAttenteDeTickets {
+    background-color: rgb(31, 45, 71);
+    color: black;
+}
+
+.statutEnCours {
+    background-color: #EF951B;
+    color: black;
+}
+
+h1 {
+    font-family: 'Prompt', sans-serif;
+    text-decoration: underline overline;
+    color: white;
+}
+
+h2 {
+    font-family: 'Prompt', sans-serif;
+    color: white;
+}
+
+p {
+    font-family: Arial;
+}
+
+.ticketContent {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/*Barre de deroulement*/
+
+div.newTicketContainer {
+    background-color: #36393F;
+    width: 950px;
+    height: 250px;
+    overflow: auto;
+    margin: auto;
+    border: solid 7px;
+    border-color: #757974;
+    border-radius: 10px;
+}
+
+div.resolvedTicketContainer {
+    background-color: rgb(135, 170, 137);
+    width: 950px;
+    height: 250px;
+    overflow: auto;
+}
+
+div.infoContainer {
+    border: 10;
+    color: white;
+    background-color: rgb(31, 45, 71);
+    width: 550px;
+    height: 550px;
+    overflow: auto;
+}
+
+img {
+    border-radius: 70%;
+}
+
+
+/*
+textarea {
+    width: 24%;
+    height: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #ccc;
+    font: 17px Calibri;
+    resize: none;
+    border-right: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding-right: 5px;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+*/
+
+
+/*Notifs*/
+
+.alert {
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    width: 500;
+    padding: 1%;
+    font-family: Verdana;
+}
+
+.alert.success {
+    background-color: #3FC51A;
+}
+
+.alert.denied {
+    background-color: #f44336;
+}
+
+.alert.info {
+    background-color: #2196F3;
+}
+
+.alert.warning {
+    background-color: #ff9800;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+
+/* Champs requis */
+
+.required:after {
+    content: " *";
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*Formulaire check/denied*/
+
+input:invalid+span:after {
+    position: absolute;
+    color: rgb(255, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    content: '✖';
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+input:valid+span:after {
+    position: absolute;
+    content: '✓';
+    color: rgb(33, 199, 102);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+
+/*box*/
+
+.boxed {
+    border: 2px solid gainsboro;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.ErrorContainer {
+    border: 10;
+    color: white;
+    background-color: rgb(131, 37, 37);
+    width: 310px;
+    height: 300px;
+    overflow: auto;
+    text-align: center;
+}
+
+
+/*count thing*/
+
+.textarea-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    height: 21%;
+}
+
+.complements {
+    width: 6%;
+    height: 100%;
+    border: 5px solid #ccc;
+    border-left: none;
+    padding: 12px 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font: 15px Calibri;
+    background-color: white;
+    overflow-wrap: break-word;
+    color: rgb(204, 68, 68);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.complements span {
+    text-align: right;
+}
+
+
+/*tool tip*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: none;
+    outline: none;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 150px;
+    background-color: #c94d2d;
+    font-size: 92%;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-family: system-ui;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+/*Archives tickets*/
+
+.tooltip .tooltiptext2 {
+    visibility: hidden;
+    width: 150px;
+    background-color: #5d4f4b;
+    font-size: 92%;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-family: system-ui;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.tooltip:hover .tooltiptext2 {
+    visibility: visible;
+}
+
+
+/* New Tickets */
+
+.tooltip .tooltiptext3 {
+    visibility: hidden;
+    width: 150px;
+    background-color: #734c36;
+    font-size: 92%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-family: system-ui;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.tooltip:hover .tooltiptext3 {
+    visibility: visible;
+}
+
+
+/*sweet alert*/
+
+
+/*
+body.swal2-shown>[aria-hidden="true"] {
+    transition: 0.1s filter;
+    filter: blur(10px);
+} */
+
+.boxUser {
+    /*1 ere boite d'utilisateur */
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    height: 30px;
+    width: 450px;
+    padding: -10px;
+    background-color: #36393f;
+}
+
+.boxFooter {
+    /*1 ere boite d'utilisateur */
+    margin-top: 5px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+    font-size: 16px;
+    height: 30px;
+    width: 740px;
+    padding: -10px;
+    background-color: #36393f;
+    color: rgb(204, 68, 68);
+}
+
+.boxContent {
+    /* 1ere boite de texte*/
+    box-sizing: border-box;
+    height: 130px;
+    width: 740px;
+    padding: 5px;
+    background-color: #494e56;
+    color: white;
+    overflow-y: auto;
+    /* overflow-z: auto; */
+    scrollbar-color: #494e56;
+    scrollbar-width: thin;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    border-radius: 5px;
+}
+
+.boxTextAreaContent {
+    /*Zone de texte*/
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    height: 130px;
+    width: 740px;
+    padding: 5px;
+    background-color: #494e56;
+    color: white;
+    resize: none;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+
+/* .answerContainer {
+    height: 500;
+} */
+
+
+/*
+.swal2-html-container {
+    height: 500;
+}*/
+
+
+/*Nav bar*/
+
+.header {
+    padding: 1px;
+    text-align: center;
+    background: #494e56;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.button {
+    background-color: black;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 55px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.main_page {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+.main_page:hover {
+    background-color: white;
+    color: black;
+}
+
+.selected_page {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+}

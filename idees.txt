@@ -1,0 +1,10 @@
+idees
+
+/* Recup des tickets pour un niveau en particulier
+SELECT informaticiens.nom, informaticiens.prenom, ticket.idTicket
+FROM informaticiens 
+INNER JOIN ticket ON ticket.ticketLevel = informaticiens.supportRole
+WHERE ticket.statut = 0
+AND informaticiens.supportRole = 2
+ORDER BY dateCreationTicket ASC
+*/
