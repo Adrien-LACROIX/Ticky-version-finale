@@ -24,11 +24,15 @@ function login($db_table, $db_champ1, $db_champ2, $db_login, $db_mdp, $db_champ_
         if (mysqli_fetch_array(mysqli_query($db, $sql))) {
             if($db_table == "utilisateurs") { #Recupere les valeurs pour la table Patients
                 $_SESSION['idUtilisateur'] = $pseudo[$db_id];
-            header("Location: http://localhost/Logger/TicketManagment/profilEmploye.php");
+            header("Location: http://localhost/TicketManagment2/profilEmploye.php");
     
         } else {
-            header("Location: http://localhost/Logger/TicketManagment/profilAdministrateur.php");
+            header("Location: http://localhost/TicketManagment2/profilAdministrateur.php");
             }
+            
+            $_SESSION['name'] = $pseudo[$db_champ1];
+            $_SESSION['fname'] = $pseudo[$db_champ2];
+
             $_SESSION['pseudo'] = $pseudo[$db_champ1] . " " . $pseudo[$db_champ2]; #Garde le pseudo dans une variable de session
             $_SESSION['is_auth'] = true; #L'utilisateur est authentifie
             $_SESSION['idInformaticien'] = $pseudo[$db_id]; #Recupere l'ID de l'utilisateur

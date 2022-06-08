@@ -9,32 +9,6 @@ body {
 
 /*Mise en forme des barres de saisie de texte sur les formulaires de connexion*/
 
-input[type=password] {
-    width: 30%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 5px solid #ccc;
-    outline: none;
-}
-
-input[type=password]:focus {
-    border: 5px solid #555;
-}
-
-input[type=text] {
-    width: 30%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 5px solid #ccc;
-    outline: none;
-}
-
-input[type=text]:focus {
-    border: 5px solid #555;
-}
-
 
 /* Imports */
 
@@ -145,31 +119,6 @@ img {
 }
 
 
-/*
-textarea {
-    width: 24%;
-    height: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 5px solid #ccc;
-    font: 17px Calibri;
-    resize: none;
-    border-right: none;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    padding-right: 5px;
-}
-
-textarea::-webkit-scrollbar {
-    display: none;
-}
-
-*/
-
-
 /*Notifs*/
 
 .alert {
@@ -223,27 +172,6 @@ textarea::-webkit-scrollbar {
 }
 
 
-/*Formulaire check/denied*/
-
-input:invalid+span:after {
-    position: absolute;
-    color: rgb(255, 0, 0);
-    font-family: Arial, Helvetica, sans-serif;
-    content: '✖';
-    padding-left: 10px;
-    padding-top: 20px;
-}
-
-input:valid+span:after {
-    position: absolute;
-    content: '✓';
-    color: rgb(33, 199, 102);
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 10px;
-    padding-top: 20px;
-}
-
-
 /*box*/
 
 .boxed {
@@ -264,33 +192,6 @@ div.ErrorContainer {
 
 
 /*count thing*/
-
-.textarea-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    height: 21%;
-}
-
-.complements {
-    width: 6%;
-    height: 100%;
-    border: 5px solid #ccc;
-    border-left: none;
-    padding: 12px 5px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    font: 15px Calibri;
-    background-color: white;
-    overflow-wrap: break-word;
-    color: rgb(204, 68, 68);
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.complements span {
-    text-align: right;
-}
 
 
 /*tool tip*/
@@ -459,10 +360,10 @@ body.swal2-shown>[aria-hidden="true"] {
 
 .header {
     padding: 1px;
-    text-align: center;
     background: #494e56;
     font-size: 20px;
     border-radius: 10px;
+    text-align: center;
 }
 
 .button {
@@ -494,4 +395,90 @@ body.swal2-shown>[aria-hidden="true"] {
     background-color: white;
     color: black;
     border: 2px solid white;
+}
+
+
+/* Create ticket form */
+
+.createTicketForm {
+    margin: auto;
+    width: 50%;
+    margin-top: 7%;
+}
+
+input[type=password],
+.objectList {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #ccc;
+    outline: none;
+    font-size: 16px;
+}
+
+input[type=password]:focus {
+    border: 5px solid #555;
+}
+
+input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #ccc;
+    outline: none;
+    font-size: 16px;
+}
+
+input[type=text]:focus {
+    border: 5px solid #555;
+}
+
+textarea {
+    width: 50%;
+    height: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #ccc;
+    font: 16px Arial;
+    resize: none;
+    border-right: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding-right: 5px;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.textarea-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    height: 21%;
+}
+
+.complements {
+    width: 10%;
+    height: 100%;
+    border: 5px solid #ccc;
+    border-left: none;
+    padding: 12px 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font: 15px Calibri;
+    background-color: white;
+    overflow-wrap: break-word;
+    color: rgb(204, 68, 68);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.complements span {
+    text-align: right;
 }
