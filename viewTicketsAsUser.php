@@ -40,12 +40,10 @@ session_start();
 
         <title>Mes tickets</title>
         <div class="header">
-    <!-- <h1><img src="laroda.jpg" alt="Avatar" style="width:38px"> Mes tickets</h1><br><br> -->
-      <a href="main.html"><button class="button main_page">ACCUEIL</button></a>
-      <a href="profil.html"><button class="button main_page">MON PROFIL</button></a>
-      <a href="btssio.html"><button class="button main_page">CRÉER UN TICKET</button></a>
+        <a href="profilEmploye.php"><button class="button main_page">MON PROFIL</button></a>
+      <a href="createTicket.php"><button class="button main_page">CRÉER UN TICKET</button></a>
       <a href="viewTicketsAsUser.php"><button class="button selected_page">MES TICKETS</button></a>
-    </div>
+        </div>
 
 
         <!-- GET NEW TICKETS -->
@@ -112,9 +110,6 @@ session_start();
                                         // console.log("CLICKED")
                                     };
 
-                                    /* displaySwitchDev.onclick = function() {
-                                         switchDev(this);
-                                     };*/
 
                                     //Algo de detection du retard d'un ticket
                                     var currentDate = d.getTime();
@@ -138,14 +133,16 @@ session_start();
 
                                         var createdAt = "Il y a " + Math.trunc(long) + " jours";
                                         var setVisibility = "none";
-                                        var setColor = "black";
+                                        var setColor = "white";
 
                                     } else {
                                         var createdAt = " Créé aujourd'hui";
                                         var setVisibility = "display";
-                                        var setColor = "black";
+                                        var setColor = "white";
                                     }
 
+                                    ligne.style.border = "9px solid #494e56";
+                                    ligne.style.backgroundColor = "#494e56"
                                     ligne.style.color = setColor;
                                     id.innerText = lignephp[item][0]; //id
                                     id.style.fontWeight = "bold";
@@ -230,23 +227,9 @@ session_start();
                     type: "POST",
                     data: "statut=1",
                     success: function(lignephp) {
-                       // console.log(JSON.parse(lignephp))
                         lignephp = JSON.parse(lignephp);
 
-                        //  var test = getSignature(lastTicketList)
-                        //   var test2 = getSignature(lignephp)
-
-                        // lastTicketList = lignephp;
-
-
                         let resolvedTicketsDisplayBox = document.getElementsByClassName('resolvedTicketContainer')[0];
-                        //let getNewTicketsCount = document.getElementById('nbNewTickets');
-
-                        //getNewTicketsCount.innerHTML = lignephp.length;
-
-                        // if (test != test2) {
-
-
 
                         if (lignephp.length > 0) {
                             resolvedTicketsDisplayBox.innerHTML = '';
@@ -254,76 +237,6 @@ session_start();
 
                                 var setStatus = "";
                                 var setClassColor = "";
-                                var createdAt;
-                                var frenchDate;
-                                var long;
-                                var currentDate;
-                                var programmedArchivageDate;
-
-
-
-                                //Recup de la date de resolution du ticket en ms
-                                //  var resolvedDate = new Date(lignephp[item][10]).getTime();
-                                // var programmedArchivageDate = tomorrow.setDate(today.getDate() + 2);
-
-
-                                var archivageDays = (programmedArchivageDate) / (1000 * 60 * 60 * 24) //Convertis les millis en jours
-
-
-                                //Algo de detection du retard d'un ticket
-
-
-                                var setArchiveDay = 10;
-                                var setNotif = Math.floor(setArchiveDay / 2);
-
-                                var jour = new Date(); //date du jour
-                                var simulation = new Date();
-                                var res = new Date(lignephp[item][10]).getTime(); //Recup date du ticket
-                                const jour2 = new Date(lignephp[item][10]); //date du jour 10
-
-                                var t2 = jour2.setDate(jour2.getDate() + setArchiveDay); //ajout de 10 jours a date du jour
-
-                                var sim = simulation.setDate(simulation.getDate() + 10);
-
-                                var resolution = new Date(res).toLocaleDateString('fr-FR')
-                                var datej = new Date(jour).toLocaleDateString('fr-FR')
-                                var date2 = new Date(t2).toLocaleDateString('fr-FR')
-                                var simDt = new Date(sim).toLocaleDateString('fr-FR')
-
-                                // console.log("jour actuel " + datej);
-                                // console.log("resolution " + resolution);
-                                // console.log("resolution plus 10 " + date2);
-                                // console.log("sim date " + new Date(sim).toLocaleDateString('fr-FR'))
-
-                                var diffTime = Math.abs(t2 - sim);
-                                var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                                var final = setArchiveDay - diffDays;
-
-                                // console.log("Difference de jours " + diffDays);
-                                // // console.log("Notif displayed on " + setNotif)
-                                // console.log("simulateur de jour " + simDt);
-
-                                // console.log("if (" + diffDays + " <= " + setNotif + " )" + " { " + "diffDays = " + diffDays + " } ")
-                                // console.log("final " + final);
-
-                                // console.log("resolution " + resolution);
-                                // console.log("date jour " + datej)
-                                // console.log("date resolution plus dix " + date2);
-                                //console.log(d2)
-                                //console.log(d3)
-                                //console.log(calc)
-
-
-                                // console.log("if (" + simDt + " == " + date2 + " )" + " { " + "diffDays = " + ms + " } ")
-
-                                if (simDt == t2) {
-                                    diffDays = 0;
-                                   // console.log("-> " + "in")
-                                    // console.log("if (" + simDt + " == " + date2 + " )" + " { " + "diffDays = " + ms + " } ")
-                                } else if (simDt > t2) {
-                                 //   diffDays = -1;
-                                    // console.log("if (" + simDt + " > " + date2 + " )" + " { " + "diffDays = " + ms + " } ")
-                                }
 
                                 //Displayed on ticket
                                 let ligne = document.createElement('p');
@@ -331,15 +244,10 @@ session_start();
                                 let id = document.createElement('span');
                                 let contexte = document.createElement('span');
                                 let date = document.createElement('span');
-                                let toolTip = document.createElement('div');
-                                let displayTooltip = document.createElement('span');
-                                let clock = document.createElement('span');
-                                let clockDisplay = document.createElement('i');
                                 let name = document.createElement('span');
                                 let btn = document.createElement("button");
                                 let getTicketId = document.createElement('span');
                                 let blankSpace = document.createElement('span');
-                                let displayDwlBtn = document.createElement("button");
                                 let getTicketSupportAnswer = document.createElement('span');
 
                                 //Not displayed
@@ -349,43 +257,6 @@ session_start();
                                 btn.onclick = function() {
                                     toggle_text(this);
                                 };
-
-                                displayDwlBtn.onclick = function() {
-                                    toggle_text(this);
-                                }
-
-                              //  console.log("-> " + diffDays)
-                               // console.log("simDt -> " + simDt)
-                              //  console.log("date2 -> " + date2)
-
-                                var resolved;
-
-                                if (diffDays <= setNotif && diffDays > 1) {
-
-                                    var archivingIn = "Ce ticket sera automatiquement archivé dans <b>" + diffDays + " jours</b>";
-                                    var setVisibility = "display";
-                                    var setColor = "ad212f";
-
-                                } else if (diffDays == 1) {
-                                    var archivingIn = "Ce ticket sera automatiquement archivé <b>" + diffDays + " jour</b>";
-                                    var setVisibility = "display";
-                                    var setColor = "ad212f";
-
-                                } else if (diffDays == 0) {
-                                    var archivingIn = "Ce ticket sera automatiquement archivé <b>Aujourd'hui</b>";
-                                    var setVisibility = "display";
-                                    var setColor = "ad212f";
-
-                                } else if (diffDays == -1) {
-                                    var archivingIn = "Ce ticket est <b>archivé</b>";
-                                    var setVisibility = "display";
-                                    var setColor = "ad212f";
-
-                                } else {
-                                    var setVisibility = "none";
-                                    var setColor = "black";
-                                }
-
 
                                 //Definition du statut
                                 if (lignephp[item][4] == 1) {
@@ -399,7 +270,9 @@ session_start();
                                     setClassColor = "statutNonResolu"
                                 }
 
-                                // ligne.style.color = setColor;
+                                ligne.style.border = "9px solid #494e56";
+                                ligne.style.backgroundColor = "#494e56"
+                                ligne.style.color = "#fff";
                                 id.innerText = lignephp[item][0]; //id
                                 id.style.fontWeight = "bold";
                                 statut.innerText = setStatus;
@@ -407,25 +280,11 @@ session_start();
                                 statut.classList.add(setClassColor);
                                 contexte.innerHTML = lignephp[item][5];
                                 contexte.style.fontWeight = "bold";
-                                date.innerText = lignephp[item][10];
-                                //  date.style.fontStyle = "italic";
-                                toolTip.classList.add("tooltip")
-                                clock.style.display = setVisibility;
-                                clock.style.fontSize = "18px";
-                                clock.style.content = "f00d";
-                                clockDisplay.classList.add("fa");
-                                clockDisplay.classList.add("fa-archive");
-                                clockDisplay.setAttribute("aria-hidden", "true");
+                                date.innerText = " le " + lignephp[item][6];
                                 name.innerText = lignephp[item][7] + " " + lignephp[item][8];
-                                displayTooltip.classList.add("tooltip");
-                                displayTooltip.classList.add("tooltiptext2");
-                                // displayTooltip.classList.add("fa");
-                                // displayTooltip.classList.add("fa-archive");
-                                displayTooltip.innerHTML = "<i class=\"fa fa-archive\"></i> " + archivingIn;
                                 btn.innerHTML = "<i class=\"fa-solid fa-eye\"></i> CONSULTER";
                                 ticketContent.style.display = "none";
                                 blankSpace.innerHTML = "&nbsp;"
-                                displayDwlBtn.innerHTML = "<i class=\"fa-solid fa-download\"></i> TELECHARGER";
                                 ticketContent.innerHTML = lignephp[item][1];
                                 getTicketId.style.display = "none";
                                 getTicketId.innerHTML = lignephp[item][4];
@@ -433,17 +292,10 @@ session_start();
                                 getTicketSupportAnswer.style.display = "none";
 
 
-
-                                clock.appendChild(clockDisplay);
-                                toolTip.appendChild(displayTooltip);
-                                toolTip.appendChild(clock);
-
-
-                                ligne.appendChild(statut); //Statut
+                                ligne.appendChild(statut);
                                 ligne.innerHTML += "&nbsp;";
-                                ligne.appendChild(toolTip); //Pendule
                                 ligne.innerHTML += "&nbsp;";
-                                ligne.appendChild(id); // Id
+                                ligne.appendChild(id);
                                 ligne.innerHTML += " [";
                                 ligne.innerHTML += "&nbsp;";
                                 ligne.appendChild(contexte);
@@ -458,15 +310,12 @@ session_start();
                                 ligne.appendChild(ticketContent);
                                 ligne.appendChild(getTicketId);
                                 ligne.appendChild(blankSpace);
-                                ligne.appendChild(displayDwlBtn);
                                 ligne.appendChild(getTicketSupportAnswer);
                                 resolvedTicketsDisplayBox.appendChild(ligne);
                             }
-                            // console.log(item)
                         } else {
                             resolvedTicketsDisplayBox.innerHTML = "<br><br><br><center><p style=\"color:white\"class=\"statutColor statutEnAttenteDeTickets\"><i class=\"fa fa-check\"></i>&nbsp;Tout va bien, Vous n'avez pas de nouveaux tickets!</center></p>";
                         }
-                        // }
                     }
                 });
 

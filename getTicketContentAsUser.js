@@ -15,22 +15,6 @@ let fulldate = day + " " + date + " " + month + " " + year;
 function toggle_text(object) {
 
 
-    // console.log("0 " + object.parentNode.children[0].innerHTML)
-    // console.log("1 " + object.parentNode.children[1].innerHTML)
-    // console.log("2 " + object.parentNode.children[2].innerHTML)
-    // console.log("3 " + object.parentNode.children[3].innerHTML)
-    // console.log("4 " + object.parentNode.children[4].innerHTML)
-    // console.log("5 " + object.parentNode.children[5].innerHTML)
-    // console.log("6 " + object.parentNode.children[6].innerHTML)
-    // console.log("7 " + object.parentNode.children[7].innerHTML)
-    // console.log("8 " + object.parentNode.children[8].innerHTML)
-    //console.log("9 " + object.parentNode.children[9].innerHTML)
-    //     // console.log("10 " + object.parentNode.children[10].innerHTML)
-    //     //console.log("11 " + object.parentNode.children[11].innerHTML)
-
-    //console.log("chaine " + object.parentNode.children)
-
-
     var title = object.parentNode.children[3].innerText.toLowerCase();
     var titleToUppercase = title.charAt(0).toUpperCase() + title.slice(1);
 
@@ -47,8 +31,8 @@ function toggle_text(object) {
         setIcon = "fa fa-shield"
         logoIcon = "<i class='fa fa-check' style='font-size:36px'></i>"
         object.parentNode.lastChild.innerHTML = answer
-        setUserMessage = 7
-        answer = object.parentNode.children[11].innerHTML
+        setUserMessage = 6
+        answer = object.parentNode.children[9].innerHTML
     }
 
     if (object.parentNode.children[0].innerHTML == "SOUMIS") {

@@ -40,8 +40,7 @@ session_start();
         <title>Créer un nouveau ticket</title>
 
         <div class="header">
-      <a href="main.html"><button class="button main_page">ACCUEIL</button></a>
-      <a href="profil.html"><button class="button main_page">MON PROFIL</button></a>
+        <a href="profilEmploye.php"><button class="button main_page">MON PROFIL</button></a>
       <a href="createTicket.php"><button class="button selected_page">CRÉER UN TICKET</button></a>
       <a href="viewTicketsAsUser.php"><button class="button main_page">MES TICKETS</button></a>
     </div>

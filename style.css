@@ -67,7 +67,6 @@ body {
 
 h1 {
     font-family: 'Prompt', sans-serif;
-    text-decoration: underline overline;
     color: white;
 }
 
@@ -99,10 +98,14 @@ div.newTicketContainer {
 }
 
 div.resolvedTicketContainer {
-    background-color: rgb(135, 170, 137);
+    background-color: #36393F;
     width: 950px;
     height: 250px;
     overflow: auto;
+    margin: auto;
+    border: solid 7px;
+    border-color: #757974;
+    border-radius: 10px;
 }
 
 div.infoContainer {

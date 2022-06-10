@@ -5,16 +5,17 @@ include_once("conDB.php");
 include_once("getTicketContent.php");
 session_start();
 $statut = $_POST['statut'];
+$idConnectedUser = $_SESSION['idInformaticien'];
 
 
 if ($statut == 0) {
-    $sql = "SELECT idTicket, contenuTicket, severiteTicket, ticketLevel, statut, titreTicket, dateCreationTicket, nomEmetteurTicket, prenomEmetteurTicket, solutionTicket ,dateResolution 
+    $sql = "SELECT idTicket, contenuTicket, categorieTicket, ticketLevel, statut, titreTicket, dateCreationTicket, nomEmetteurTicket, prenomEmetteurTicket, solutionTicket ,dateResolution 
     FROM ticket 
     WHERE statut = $statut
-    AND ticketLevel = 0
+    AND ticketLevel IN (SELECT supportRole FROM informaticiens WHERE idInformaticien = $idConnectedUser)
     ORDER BY dateCreationTicket ASC";
 } else {
-    $sql = "SELECT idTicket, contenuTicket, severiteTicket, ticketLevel, statut, titreTicket, dateCreationTicket, nomEmetteurTicket, prenomEmetteurTicket, solutionTicket ,dateResolution 
+    $sql = "SELECT idTicket, contenuTicket, categorieTicket, ticketLevel, statut, titreTicket, dateCreationTicket, nomEmetteurTicket, prenomEmetteurTicket, solutionTicket ,dateResolution 
     FROM ticket 
     WHERE statut = $statut
     OR statut = 2

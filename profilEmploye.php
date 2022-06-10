@@ -8,7 +8,7 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styleMainPage.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
 
 </head>
 
@@ -19,20 +19,18 @@ session_start();
     ?>
         <title>Espace Utilisateur</title>
         <div class="header">
-            <img src="laRodaLogo.jpg" alt="Avatar" style="width:200px; margin-left: 50px; margin-top: 10px;" align="left">
-            <h1 style="text-align:left">LA RODA</h1>
-            <div class="slogan">En route vers le futur!</div>
-        </div>
+      <a href="profilEmploye.php"><button class="button selected_page">MON PROFIL</button></a>
+      <a href="createTicket.php"><button class="button main_page">CRÉER UN TICKET</button></a>
+      <a href="viewTicketsAsUser.php"><button class="button main_page">MES TICKETS</button></a>
+    </div>
 
         </head>
         <?php
 
 
-        echo "<h1 id=\"pseudo\">Bienvenue " . $_SESSION['pseudo'] . " | ID: " .$_SESSION['idUtilisateur']."</h1><br><br><br>";
-        echo "<a id=\"button_is_auth\" class=\"button button1\" href=\"createTicket.php\">Creer un nouveau ticket</a>";
-        echo "<a id=\"button_is_auth\" class=\"button button1\" href=\"viewTicketsAsUser.php\">Mes tickets</a><br><br><br>";
+        echo "<center><h1 id=\"pseudo\">Bienvenue " . $_SESSION['pseudo'] . " | ID: " .$_SESSION['idUtilisateur']."</h1></center>";
 
-        echo "<form method=\"post\" id=\"deconnexion\"> <input class=\"button button1\" type=\"submit\" value=\"Deconnexion\" name=\"log_off\"/></form>";
+        echo "<center><form method=\"post\" id=\"deconnexion\"> <input class=\"button button1\" type=\"submit\" value=\"Deconnexion\" name=\"log_off\"/></form></center>";
         ?>
 
 
@@ -44,11 +42,10 @@ session_start();
         <?php
         if (isset($_POST['log_off'])) {
             $_SESSION['is_auth'] = false;
-            header("Location: http://localhost/Logger/TicketManagment/connexionEmploye.php");
+            header("Location: http://localhost/TicketManagment2/connexionEmploye.php");
         ?>
             <script type='text/javascript'>
                 document.getElementById("pseudo").style.display = "none";
-                //document.getElementById("is_auth").innerHTML = "Deconnecte";   // Affiche deconnecte au moment de la deconnexion   
                 document.getElementById("connexion").style.display = "flex";
                 document.getElementById("deconnexion").style.display = "none";
             </script>

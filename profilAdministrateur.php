@@ -6,7 +6,7 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styleMainPage.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
 
@@ -22,34 +22,21 @@ session_start();
             <title>Espace Administrateur</title>
 
             <div class="header">
-                <img src="laRodaLogo.jpg" alt="Avatar" style="width:200px; margin-left: 50px; margin-top: 10px;" align="left">
-                <h1 style="text-align:left">LA RODA</h1>
-                <div class="slogan">En route vers le futur!</div>
-            </div>
+      <a href="profilEmploye.php"><button class="button selected_page">MON PROFIL</button></a>
+      <a href="viewTickets.php"><button class="button main_page">GESTION DES TICKETS</button></a>
+    </div>
 
 </head>
-
-<ul class="topnav">
-    <li><a href="main.php">Accueil</a></li>
-    <li><a href="viewTickets.php" style="margin:auto; text-align:center; display:block;">Gestion des Tickets</a></li>
-    <div class="dropdown">
-    <li class="right"><a href="#about"> <?php echo "<i class=\"fa fa-user\" aria-hidden=\"true\"></i>" . $_SESSION['pseudo']; ?></a>
-            <div class="dropdown-content">
-                <a href="#"><?php echo "<form method=\"post\" id=\"deconnexion\"><input class=\"button button1\" type=\"submit\" value=\"Deconnexion\" name=\"log_off\"/></form>"; ?></a>
-                <a href="competences.html">Compétences</a>
-            </div>
-        </div>
-    </li>
-</ul>
-<?php echo "<form method=\"post\" id=\"deconnexion\"><input class=\"button button1\" type=\"submit\" value=\"Deconnexion\" name=\"log_off\"/></form>"; ?></a>
 
 <?php
 
 
-            echo "<h1 style=\"color:white;\" id=\"pseudo\">Bienvenue " . $_SESSION['pseudo'] . " !</h2>";
-            echo "<h3 style=\"color:white;\"id=\"pseudo\">Votre ID: " . $_SESSION['idInformaticien'] . "</h3>";
-           // echo "<form method=\"post\" id=\"deconnexion\"><input class=\"button button1\" type=\"submit\" value=\"Deconnexion\" name=\"log_off\"/></form>";
+echo "<center><h1 id=\"pseudo\">Bienvenue " . $_SESSION['pseudo'] . " | ID: " .$_SESSION['idUtilisateur']."</h1></center>";
+
+echo "<center><form method=\"post\" id=\"deconnexion\"> <input class=\"button button1\" type=\"submit\" value=\"Deconnexion\" name=\"log_off\"/></form></center>";
 ?>
+
+
 <script>
     document.getElementById("button_is_auth2").style.display = "none";
     document.getElementById("button_is_auth").style.display = "none";
