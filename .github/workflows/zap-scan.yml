@@ -1,0 +1,39 @@
+name: OWASP ZAP Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  zap_scan:
+    name: Run OWASP ZAP Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout le code source
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # 2. Démarrer le serveur PHP pour les tests
+      - name: Start PHP Server
+        run: |
+          php -S 127.0.0.1:8000 -t ./ &
+          sleep 5 # Attendre que le serveur démarre
+
+      # 3. Lancer OWASP ZAP pour l'analyse
+      - name: Run OWASP ZAP Baseline Scan
+        run: |
+          docker run --rm -v $(pwd):/zap/wrk:rw --network="host" owasp/zap2docker-stable zap-baseline.py \
+            -t http://127.0.0.1:8000 \
+            -r zap_report.html
+
+      # 4. Sauvegarder le rapport ZAP en tant qu'artefact
+      - name: Upload ZAP Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: zap-report
+          path: zap_report.html
