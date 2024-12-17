@@ -22,7 +22,7 @@
 <ul>
   <li><a href="#home"><b>Accueil</b></a></li>
   <li><a href="connexionEmploye.php">Connexion Employé</a></li>
-  <li><a href="connexionAdministrateur.php" >Connexion Administrateur</a></li>
+  <li><a href="connexionAdministrateur.php" >Connexion frrr</a></li>
 </ul>
 
 <center>
